@@ -205,7 +205,7 @@ const social_handles = [
   },
   {
     platform: "Resume",
-    url: "https://github.com/ahmedrazek",
+    url: "https://drive.google.com/file/d/126osrt68xsKPaBwx3ajrvlJqpxxLRC3e/view?usp=drive_link",
     image: {
       public_id: "my_avatar",
       _id: "my_avatar",
