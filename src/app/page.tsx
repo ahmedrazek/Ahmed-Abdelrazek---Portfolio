@@ -22,6 +22,7 @@ import { Capabilities } from "@/components/sections/capabilities";
 import { Experience } from "@/components/sections/experience";
 import { WorkWithMe } from "@/components/sections/work-with-me";
 import { About } from "@/components/sections/about";
+import { Contact } from "@/components/sections/contact";
 import { Nav } from "@/components/sections/nav";
 import { Hero as NewHero } from "@/components/sections/hero";
 import { ProofStrip } from "@/components/sections/proof-strip";
@@ -62,13 +63,7 @@ export default function Home() {
         />
       </section> */}
 
-      {/* ===CONTACT US=== */}
-      <div
-        className="rounded-t-[2rem] md:rounded-t-[3rem] overflow-hidden"
-        id="contact"
-      >
-        <ContactUs email={email} about={about} social_handle={social_handles} />
-      </div>
+      <Contact contact={site.contact} cvHref={resolveCvHref(site.contact, path.join(process.cwd(), "public"))} />
     </main>
   );
 }

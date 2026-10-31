@@ -49,6 +49,7 @@ export const Hero = ({ profile }: { profile: Profile }) => {
             <Transition className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#work"
+                aria-label="See my work"
                 className="px-6 py-3 rounded-full bg-white text-black font-medium flex items-center gap-3 group"
               >
                 <TextReveal>See my work</TextReveal>
@@ -56,6 +57,7 @@ export const Hero = ({ profile }: { profile: Profile }) => {
               </a>
               <a
                 href="#contact"
+                aria-label="Let's talk"
                 className="px-6 py-3 rounded-full border border-white/50 text-white flex items-center gap-3"
               >
                 <TextReveal>Let&apos;s talk</TextReveal>

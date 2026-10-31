@@ -38,7 +38,7 @@ export const Nav = ({ cvHref }: { cvHref: string }) => {
         <ul className="hidden md:flex items-center gap-8 text-white/70">
           {links.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="hover:text-white">
+              <a href={link.href} aria-label={link.label} className="hover:text-white">
                 <TextReveal>{link.label}</TextReveal>
               </a>
             </li>

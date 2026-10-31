@@ -29,6 +29,7 @@ export const WorkWithMe = ({ offers }: { offers: Offer[] }) => {
       <Transition className="mt-10">
         <a
           href="#contact"
+          aria-label="Start a project"
           className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white text-black font-medium group"
         >
           <TextReveal>Start a project</TextReveal>
