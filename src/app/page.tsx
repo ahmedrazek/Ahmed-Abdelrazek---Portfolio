@@ -1,4 +1,3 @@
-import About from "@/components/about";
 import Header from "@/components/header";
 import Projects from "@/components/projects";
 import Testimonials from "@/components/testimonials";
@@ -12,7 +11,6 @@ import {
 } from "@/components/ui";
 
 import { UserObject } from "@/utils/interfaces";
-import Experience from "@/components/experience";
 import { ContactUs } from "@/components/contact-us";
 import Link from "next/link";
 import { Hero } from "@/components/hero";
@@ -20,6 +18,10 @@ import path from "node:path";
 import { site } from "@/content/site";
 import { resolveCvHref, resolveProjectMedia } from "@/content/media";
 import { Work } from "@/components/sections/work";
+import { Capabilities } from "@/components/sections/capabilities";
+import { Experience } from "@/components/sections/experience";
+import { WorkWithMe } from "@/components/sections/work-with-me";
+import { About } from "@/components/sections/about";
 import { Nav } from "@/components/sections/nav";
 import { Hero as NewHero } from "@/components/sections/hero";
 import { ProofStrip } from "@/components/sections/proof-strip";
@@ -32,34 +34,7 @@ export default function Home() {
       <NewHero profile={site.profile} />
       <ProofStrip stats={site.stats} />
       <SkillsTicker skills={site.skills} />
-      <About about={about} timeline={timeline} />
       {/* <Experience timeline={timeline} /> */}
-      {/* ===SERVICES SECTION=== */}
-      <section className="px-2 py-20 relative" id="services">
-        <span className="blob absolute top-[20%] right-0 w-1/3 h-5/6 blur-[100px] rotate-180 -z-10" />
-        <SectionHeading className="md:pl-16 overflow-hidden">
-          <SlideIn className="text-white/40">Here&apos;s how</SlideIn> <br />
-          <SlideIn>I can help you</SlideIn>
-        </SectionHeading>
-        <div className="mx-auto pt-10">
-          {services.map((service) => (
-            <Transition key={service._id}>
-              <HoverImageLink
-                heading={service.name}
-                href=""
-                price={service.charge}
-                imgSrc={service.image.url}
-                subheading={service.desc}
-              />
-            </Transition>
-          ))}
-        </div>
-        <Transition className="flex items-center py-10 md:hidden">
-          <div className="p-4 rounded-full border border-white/50">
-            <span>Discuss the project</span>
-          </div>
-        </Transition>
-      </section>
       {/* ===PROJECTS SECTION=== */}
       <Work
         items={site.projects.map((project) => ({
@@ -67,6 +42,10 @@ export default function Home() {
           media: resolveProjectMedia(project, path.join(process.cwd(), "public")),
         }))}
       />
+      <Capabilities items={site.capabilities} />
+      <Experience roles={site.experience} />
+      <WorkWithMe offers={site.offers} />
+      <About profile={site.profile} />
       {/* ===TESTIMONIALS SECTION=== */}
       {/* <section className="py-20 relative" id="testimonials">
         <span className="blob size-1/2 absolute -top-20 left-0 blur-[100px] -z-10" />
