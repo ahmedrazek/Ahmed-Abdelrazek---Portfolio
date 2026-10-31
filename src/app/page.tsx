@@ -18,7 +18,8 @@ import Link from "next/link";
 import { Hero } from "@/components/hero";
 import path from "node:path";
 import { site } from "@/content/site";
-import { resolveCvHref } from "@/content/media";
+import { resolveCvHref, resolveProjectMedia } from "@/content/media";
+import { Work } from "@/components/sections/work";
 import { Nav } from "@/components/sections/nav";
 import { Hero as NewHero } from "@/components/sections/hero";
 import { ProofStrip } from "@/components/sections/proof-strip";
@@ -60,7 +61,12 @@ export default function Home() {
         </Transition>
       </section>
       {/* ===PROJECTS SECTION=== */}
-      <Projects data={projects} />
+      <Work
+        items={site.projects.map((project) => ({
+          project,
+          media: resolveProjectMedia(project, path.join(process.cwd(), "public")),
+        }))}
+      />
       {/* ===TESTIMONIALS SECTION=== */}
       {/* <section className="py-20 relative" id="testimonials">
         <span className="blob size-1/2 absolute -top-20 left-0 blur-[100px] -z-10" />
