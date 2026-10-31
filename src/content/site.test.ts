@@ -61,6 +61,13 @@ test("no template leftovers or forbidden names", () => {
   }
 });
 
+test("no vulnerability specifics in project copy", () => {
+  const copy = JSON.stringify(site.projects).toLowerCase();
+  for (const bad of ["secrets", "make it safe", "authorized socket", "out of the logs"]) {
+    expect(copy).not.toContain(bad);
+  }
+});
+
 test("skills updated", () => {
   for (const s of ["NestJS", "PostgreSQL", "Redis", "Claude API", "LangChain", "MCP"]) {
     expect(site.skills).toContain(s);

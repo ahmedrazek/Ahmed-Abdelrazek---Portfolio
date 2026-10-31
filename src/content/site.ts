@@ -81,9 +81,9 @@ export const site: Site = {
       summary:
         "Ride-hailing app for the Saudi market that also runs food delivery on the same drivers.",
       problem:
-        "I took over a backend built by an outsourced team and had to make it safe before building on it.",
+        "I took over a backend built by an outsourced team and had to harden it before building new features on it.",
       built: [
-        "Hardened the codebase: authorized socket rooms, rate limiting, secrets out of the logs, fare calculation moved to the server.",
+        "Security hardening across the API and realtime layer, with rate limiting and fare calculation on the server.",
         "Per-admin permissions with an audit log of every admin action.",
         "Ride analytics on Saudi local time with Excel export.",
         "A notification feed with deep links and read state.",

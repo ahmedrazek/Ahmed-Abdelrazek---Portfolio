@@ -79,7 +79,7 @@ export function ParallaxText({
           "w-max flex items-center justify-center gap-2 md:py-3 py-1",
           className
         )}
-        style={{ x, skew: skewVelocityFactor }}
+        style={reduceMotion ? { x } : { x, skew: skewVelocityFactor }}
       >
         {children}
         {children}

@@ -26,14 +26,13 @@ export const Work = ({ items }: { items: WorkItem[] }) => {
             key={item.project.slug}
             transition={{ delay: 0.1 * (i % 3) }}
           >
-            <motion.button
-              type="button"
-              onClick={() => setOpen(item)}
+            {/* Stretched-button card: the button holds only the name and its
+                ::after covers the card, so headings and lists stay readable. */}
+            <motion.article
               onMouseEnter={() => setVariant("PROJECT")}
               onMouseLeave={() => setVariant("DEFAULT")}
               whileHover={{ y: -6 }}
-              aria-haspopup="dialog"
-              className="group w-full text-left rounded-3xl overflow-hidden border border-white/10 bg-white/[0.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+              className="group relative rounded-3xl overflow-hidden border border-white/10 bg-white/[0.03] focus-within:outline focus-within:outline-2 focus-within:outline-white"
             >
               <div className="aspect-[16/10] overflow-hidden">
                 <ProjectCover
@@ -45,9 +44,19 @@ export const Work = ({ items }: { items: WorkItem[] }) => {
               <div className="p-5 md:p-6">
                 <div className="flex items-start justify-between gap-4">
                   <h3 className="text-xl md:text-2xl font-semibold text-white">
-                    {item.project.name}
+                    <button
+                      type="button"
+                      onClick={() => setOpen(item)}
+                      aria-haspopup="dialog"
+                      className="text-left outline-none after:absolute after:inset-0 after:content-['']"
+                    >
+                      {item.project.name}
+                    </button>
                   </h3>
-                  <ArrowUpRight className="shrink-0 text-white/60 group-hover:text-white group-hover:rotate-45 transition" />
+                  <ArrowUpRight
+                    aria-hidden
+                    className="shrink-0 text-white/60 group-hover:text-white group-hover:rotate-45 transition"
+                  />
                 </div>
                 <p className="mt-2 text-white/60">{item.project.summary}</p>
                 <ul className="mt-4 flex flex-wrap gap-2">
@@ -61,7 +70,7 @@ export const Work = ({ items }: { items: WorkItem[] }) => {
                   ))}
                 </ul>
               </div>
-            </motion.button>
+            </motion.article>
           </Transition>
         ))}
       </div>
