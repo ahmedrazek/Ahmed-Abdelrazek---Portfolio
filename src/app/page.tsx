@@ -16,67 +16,23 @@ import Experience from "@/components/experience";
 import { ContactUs } from "@/components/contact-us";
 import Link from "next/link";
 import { Hero } from "@/components/hero";
-import { platform } from "os";
+import path from "node:path";
+import { site } from "@/content/site";
+import { resolveCvHref } from "@/content/media";
+import { Nav } from "@/components/sections/nav";
+import { Hero as NewHero } from "@/components/sections/hero";
+import { ProofStrip } from "@/components/sections/proof-strip";
+import { SkillsTicker } from "@/components/sections/skills-ticker";
 
 export default function Home() {
   return (
     <main className="relative">
-      <Transition className="fixed md:top-8 top-6 md:left-8 left-6 z-30 hover:text-white/80 text-white/40">
-        <Link href={"/"}>
-          <TextReveal className="font-semibold ">
-            Ahmed Abdelrazek Portfolio
-          </TextReveal>
-        </Link>
-      </Transition>
-      <Header social={social_handles} />
-      <Hero about={about} />
+      <Nav cvHref={resolveCvHref(site.contact, path.join(process.cwd(), "public"))} />
+      <NewHero profile={site.profile} />
+      <ProofStrip stats={site.stats} />
+      <SkillsTicker skills={site.skills} />
       <About about={about} timeline={timeline} />
       {/* <Experience timeline={timeline} /> */}
-      {/* ===SKILLS SECTION=== */}
-      <section id="skills">
-        <ParallaxText baseVelocity={-5}>
-          {skills
-            .sort((a, b) => a.sequence - b.sequence)
-            .map((skill) =>
-              skill.enabled ? (
-                <span
-                  key={skill._id}
-                  className="md:text-7xl text-xl font-semibold uppercase text-white/30"
-                >
-                  {skill.name} •
-                </span>
-              ) : null
-            )}
-        </ParallaxText>
-        <ParallaxText baseVelocity={5}>
-          {skills
-            .sort((a, b) => a.sequence - b.sequence)
-            .map((skill) =>
-              skill.enabled ? (
-                <span
-                  key={skill._id}
-                  className="md:text-7xl text-xl font-semibold uppercase text-white/30"
-                >
-                  {skill.name} •
-                </span>
-              ) : null
-            )}
-        </ParallaxText>
-        <ParallaxText baseVelocity={-5}>
-          {skills
-            .sort((a, b) => a.sequence - b.sequence)
-            .map((skill) =>
-              skill.enabled ? (
-                <span
-                  key={skill._id}
-                  className="md:text-7xl text-xl font-semibold uppercase text-white/30"
-                >
-                  {skill.name} •
-                </span>
-              ) : null
-            )}
-        </ParallaxText>
-      </section>
       {/* ===SERVICES SECTION=== */}
       <section className="px-2 py-20 relative" id="services">
         <span className="blob absolute top-[20%] right-0 w-1/3 h-5/6 blur-[100px] rotate-180 -z-10" />
@@ -171,12 +127,12 @@ const about = {
   avatar: {
     public_id: "my_avatar",
     _id: "my_avatar",
-    url: "/WhatsApp Image 2023-04-10 at 01.54.20.jpg",
+    url: "/ahmed.jpg",
   },
   alternateAvatars: [
     {
       public_id: "my_avatar",
-      url: "/WhatsApp Image 2023-04-10 at 01.54.20.jpg",
+      url: "/ahmed.jpg",
     },
   ],
 };
@@ -187,7 +143,7 @@ const social_handles = [
     image: {
       public_id: "my_avatar",
       _id: "my_avatar",
-      url: "/WhatsApp Image 2023-04-10 at 01.54.20.jpg",
+      url: "/ahmed.jpg",
     },
     enabled: true,
     _id: "asdfdsf",
@@ -198,7 +154,7 @@ const social_handles = [
     image: {
       public_id: "my_avatar",
       _id: "my_avatar",
-      url: "/WhatsApp Image 2023-04-10 at 01.54.20.jpg",
+      url: "/ahmed.jpg",
     },
     enabled: true,
     _id: "asdfdsf",
@@ -209,7 +165,7 @@ const social_handles = [
     image: {
       public_id: "my_avatar",
       _id: "my_avatar",
-      url: "/WhatsApp Image 2023-04-10 at 01.54.20.jpg",
+      url: "/ahmed.jpg",
     },
     enabled: true,
     _id: "asdfdsf",

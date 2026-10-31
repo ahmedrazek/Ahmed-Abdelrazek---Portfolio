@@ -39,7 +39,7 @@ export const PageLoad = ({ setHideLoader }: PageLoadProps) => {
         </span>
         <div className="flex flex-col max-md:justify-between max-md:h-full">
           <p className="text-3xl md:text-5xl w-full md:w-2/5">
-            I develop 3D visuals, user interfaces and web applications
+            Senior backend engineer. Backend, full-stack and AI, end to end.
           </p>
           <div className="flex justify-between items-end">
             <span className="text-white/30">Loading...</span>

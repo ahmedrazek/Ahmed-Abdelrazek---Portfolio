@@ -9,6 +9,7 @@ import {
   useMotionValue,
   useVelocity,
   useAnimationFrame,
+  useReducedMotion,
 } from "framer-motion";
 import { cn } from "@/utils/cn";
 
@@ -54,7 +55,10 @@ export function ParallaxText({
   const x = useTransform(baseX, (v) => `${wrap(0, -25, v)}%`);
   const directionFactor = useRef<number>(1);
 
+  const reduceMotion = useReducedMotion();
+
   useAnimationFrame((t, delta) => {
+    if (reduceMotion) return;
     const adjustedBaseVelocity = baseVelocity * 0.1;
     let moveBy =
       directionFactor.current * adjustedBaseVelocity * (delta / 1000);
